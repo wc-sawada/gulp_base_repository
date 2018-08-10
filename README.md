@@ -1,0 +1,2 @@
+# gulp_base_repository
+理想の新規サイトディレクトリ構成を作っていく
