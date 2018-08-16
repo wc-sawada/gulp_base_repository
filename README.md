@@ -153,7 +153,7 @@ before_images/	圧縮対象 ←良いディレクトリ名が思いつかない�
   ┗main_visual.png
 ```
 
-before_images/はgit管理で、images配下のみサーバーに上げるイメージ  
+before_images/はgit管理で、images/配下のみサーバーに上げるイメージ  
 プロジェクトは確かに肥大化するかもだけど、一応圧縮前画像は持っておきたい。  
 (圧縮後荒れすぎたりしたとき差し替えられるように)
 
@@ -162,3 +162,58 @@ before_images/はgit管理で、images配下のみサーバーに上げるイメ
 http://blog.yuhiisk.com/archive/2015/06/22/about-critical-css.html#CSS-3
 
 https://github.com/addyosmani/critical-path-css-demo
+
+
+
+
+# ルール系まとめ
+
+## mixinのルール
+- 何のためのmixinなのかをコメントする
+- 引数があるのであればどんな値を渡すのかをコメントする
+- コメントはコンパイル出力されないように/**/ではなく、「//」で書く
+- 私用されている箇所があるのなら明確にしておく
+
+```
+// btnスタイル 基本型
+// $btn_name…数字で色とフォントカラーが変わります。mixin内部を参考に指定してください。初期値はentry。
+// $padding…ボタンのpadding。初期値は18px 0 18px 10px。
+@mixin btn_base_style($btn_name:entry, $padding:18px 0 18px 10px) {
+	display: block;
+	padding: $padding;
+	font-size: 18px;
+	font-weight: bold;
+	letter-spacing: 2px;
+	text-align: center;
+	box-shadow: 0 2px 3px 0 rgba(153, 153, 153, 0.4);
+	border-radius: 8px;
+	cursor: pointer;
+
+	// かんたん検索のボタン、応募するボタン、応募完了のTOPへ戻るボタン
+	@if $btn_name == entry {
+		color: $white;
+		background-color: #ed236a;
+		border: 2px solid #f47ba6;
+	// 前回の検索、キープ解除ボタン、かんたん検索の条件リセットボタン
+	} @else if $btn_name == reset {
+		color: $white;
+		background-color: #b1a1a7;
+		border: 2px solid #d0c7ca;
+	// サロン紹介ボタン、詳細を見るボタン、住所自動入力ボタン
+	} @else if $btn_name == detail {
+		color: $white;
+		background-color: #f14f88;
+		border: 2px solid #f795b8;
+	// デザインもっと見るボタン、キープするボタン、ページネーション
+	} @else if $btn_name == more {
+		color: $white;
+		background-color: #f47ba6;
+		border: 2px solid #f8b0ca;
+	// 修正ボタン
+	} @else if $btn_name == edit {
+		color: #876e77;
+		background-color: #e0d9dc;
+		border: 2px solid #ece8ea;
+	}
+}
+```
