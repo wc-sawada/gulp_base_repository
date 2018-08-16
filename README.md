@@ -38,29 +38,43 @@ FrontSP配下にhtmlファイル
 　→ファイル探しやすい  
 　PCはPC！！！SPはSP！！！にしたい。
 
-・階層深くして、url変えずに表示させるファイルの指定方法が分からない  
-　→いわゆるRouter的な。多分開発側がやってることだから
 
-# 本当は_header.scssや_footer.scss…エレメントごとに分けたい
+## 本当は_header.scssや_footer.scss…エレメントごとに分けたい
 
 けど、一気にやっても大変なので。  
-というか完全新規サイト来たらちゃんと考えたいところです。
+というか完全新規サイト来たらちゃんと考えたいところです。  
 
-# 澤田式ディレクトリ構成
-上記は無理そうだからとりあえずこんなサンプルを作りたい…
+# 一般的なディレクトリ構成は…
+```
+root/
+┠ dist/ (書き出し先)
+│ ┠ hogehoge.html
+│ ┠ css/
+│ ┠ js/
+│ ┠ assets/images/
+┠ src/ (コンパイル前)
+│ ┠ scss/ 
+│ ┠ images/
+└ gulpfile.js
+```
 
-# 「SCSS編」  
+・distで階層深くして、url変えずに表示させるファイルの指定方法が分からないｗ  
+　→いわゆるRouter的な。多分開発側がやってることだから
+
+↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓上記は無理そうだからとりあえずこんなサンプルを作りたい↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+
+# 「SCSS編」
 ・共通のものはディレクトリ直下に置く。  
 ・コンパイルしたくないファイル冒頭に_を付ける。
 
 ```
-/scss
- ┗common
+scss/
+ ┗common/
   ┗_variable.scss		全体で使用したいsass変数管理ファイル
   ┗_mixin.scss			全体で使用したいmixin管理ファイル
   ┗_reset.scss			リセット
   ┗_common.scss			全体共通
- ┗sp_common
+ ┗sp_common/
   ┗_variable.scss		全体で使用したいsass変数管理ファイル
   ┗_mixin.scss			全体で使用したいmixin管理ファイル
   ┗_reset.scss			リセット
@@ -70,19 +84,19 @@ FrontSP配下にhtmlファイル
 ----------------------------------------------------------------------------------------
 ↓ページ内独自
 
- ┗/top					ページ名のディレクトリ
+ ┗top/				ページ名のディレクトリ
   ┗_variable.scss		ページで使用したいsass変数管理ファイル(不要であれば作成しない)
   ┗_mixin.scss			ページで使用したいmixinファイル(不要であれば作成しない)
   ┗style.scss			必要なファイルのみ@importで読み込む　★このファイルがコンパイルされる
-  ┗_sp_variable.scss	ページで使用したいsass変数管理ファイル(不要であれば作成しない)
+  ┗_sp_variable.scss		ページで使用したいsass変数管理ファイル(不要であれば作成しない)
   ┗_sp_mixin.scss		ページで使用したいmixinファイル(不要であれば作成しない)
   ┗sp_style.scss		必要なファイルのみ@importで読み込む　★このファイルがコンパイルされる
 ```
 
 出力結果
 ```
-/css
- ┗/top
+css/
+ ┗top/
   ┗style.css			１ファイルで完結させる
   ┗sp_style.css			１ファイルで完結させる
 ```
@@ -100,7 +114,7 @@ FrontSP配下にhtmlファイル
 ex) top/style.scss
 ```
 @import ‘../common/_variable’;	全体共有の変数管理ファイル
-@import ‘./_variable’;	ページ内のみで使用する変数管理ファイル
+@import ‘./_variable’;		ページ内のみで使用する変数管理ファイル
 @import ‘../common/_mixin’;	全体共有のmixinファイル
 @import ‘./_mixin’;		ページ内のみで使用するmixinファイル
 @import ‘../common/_reset’;
@@ -115,9 +129,9 @@ ex) top/style.scss
 ex) top/sp_style.scss
 ```
 @import ‘../sp_common/_variable’;	全体共有の変数管理ファイル
-@import ‘./_sp_variable’;	ページ内のみで使用する変数管理ファイル
-@import ‘../sp_common/_mixin’;	全体共有のmixinファイル
-@import ‘./_sp_mixin’;		ページ内のみで使用するmixinファイル
+@import ‘./_sp_variable’;		ページ内のみで使用する変数管理ファイル
+@import ‘../sp_common/_mixin’;		全体共有のmixinファイル
+@import ‘./_sp_mixin’;			ページ内のみで使用するmixinファイル
 @import ‘../sp_common/_reset’;
 @import ‘../sp_common/_common’;
 
@@ -128,4 +142,23 @@ ex) top/sp_style.scss
 ```
 
 # 「images編」  
-ここまで！
+圧縮対象ディレクトリと圧縮出力先のディレクトリが必要  
+```
+images/		出力先
+ ┗top/
+  ┗main_visual.png
+
+before_images/	圧縮対象 ←良いディレクトリ名が思いつかないｗｗｗｗｗｗ
+ ┗top/
+  ┗main_visual.png
+```
+
+before_images/はgit管理で、images配下のみサーバーに上げるイメージ  
+プロジェクトは確かに肥大化するかもだけど、一応圧縮前画像は持っておきたい。  
+(圧縮後荒れすぎたりしたとき差し替えられるように)
+
+# クリティカルパス できるかわからないけどやってみる
+
+http://blog.yuhiisk.com/archive/2015/06/22/about-critical-css.html#CSS-3
+
+https://github.com/addyosmani/critical-path-css-demo
