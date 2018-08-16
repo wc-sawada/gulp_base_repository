@@ -9,27 +9,27 @@
 	SPの階層だけ1階層深くなる
 ```
 top
- ┗index.html
+┠ index.html
 about
- ┗index.html
+┠ index.html
 sp
- ┗top
-  ┗index.html
- ┗about
-  ┗index.html
+┠ top
+│ ┠ index.html
+┠ about
+│ ┠ index.html
 ```
 ex) 理想
 ```
 PC
- ┗top
-  ┗index.html
-┗about
-  ┗index.html
+┠ top
+│ ┠ ┗index.html
+┠ bout
+│ ┠ index.html
 SP
- ┗top
-  ┗index.html
- ┗about
-  ┗index.html
+┠ top
+│ ┠ index.html
+┠ about
+│ ┠ index.html
 ```
 
 前の現場では  
@@ -69,36 +69,36 @@ root/
 
 ```
 scss/
- ┗common/
-  ┗_variable.scss		全体で使用したいsass変数管理ファイル
-  ┗_mixin.scss			全体で使用したいmixin管理ファイル
-  ┗_reset.scss			リセット
-  ┗_common.scss			全体共通
- ┗sp_common/
-  ┗_variable.scss		全体で使用したいsass変数管理ファイル
-  ┗_mixin.scss			全体で使用したいmixin管理ファイル
-  ┗_reset.scss			リセット
-  ┗_common.scss			全体共通
+┠ common/
+│ ┠ _variable.scss		全体で使用したいsass変数管理ファイル
+│ ┠ _mixin.scss			全体で使用したいmixin管理ファイル
+│ ┠ _reset.scss			リセット
+│ ┠ _common.scss			全体共通
+┠ sp_common/
+│ ┠ _variable.scss		全体で使用したいsass変数管理ファイル
+│ ┠ _mixin.scss			全体で使用したいmixin管理ファイル
+│ ┠ _reset.scss			リセット
+│ ┠ _common.scss			全体共通
 
 ↑全体共通系(common/commonは、どうなのか？とは思うｗ)
 ----------------------------------------------------------------------------------------
 ↓ページ内独自
 
- ┗top/				ページ名のディレクトリ
-  ┗_variable.scss		ページで使用したいsass変数管理ファイル(不要であれば作成しない)
-  ┗_mixin.scss			ページで使用したいmixinファイル(不要であれば作成しない)
-  ┗style.scss			必要なファイルのみ@importで読み込む　★このファイルがコンパイルされる
-  ┗_sp_variable.scss		ページで使用したいsass変数管理ファイル(不要であれば作成しない)
-  ┗_sp_mixin.scss		ページで使用したいmixinファイル(不要であれば作成しない)
-  ┗sp_style.scss		必要なファイルのみ@importで読み込む　★このファイルがコンパイルされる
+┠ top/				ページ名のディレクトリ
+│ ┠ _variable.scss		ページで使用したいsass変数管理ファイル(不要であれば作成しない)
+│ ┠ _mixin.scss			ページで使用したいmixinファイル(不要であれば作成しない)
+│ ┠ style.scss			必要なファイルのみ@importで読み込む　★このファイルがコンパイルされる
+│ ┠ _sp_variable.scss		ページで使用したいsass変数管理ファイル(不要であれば作成しない)
+│ ┠ _sp_mixin.scss		ページで使用したいmixinファイル(不要であれば作成しない)
+│ ┠ sp_style.scss		必要なファイルのみ@importで読み込む　★このファイルがコンパイルされる
 ```
 
 出力結果
 ```
 css/
- ┗top/
-  ┗style.css			１ファイルで完結させる
-  ┗sp_style.css			１ファイルで完結させる
+┠ top/
+│ ┠ style.css			１ファイルで完結させる
+│ ┠ sp_style.css			１ファイルで完結させる
 ```
 
 # topディレクトリ配下のstyle.scssとsp_style.scssの中身
@@ -145,12 +145,12 @@ ex) top/sp_style.scss
 圧縮対象ディレクトリと圧縮出力先のディレクトリが必要  
 ```
 images/		出力先
- ┗top/
-  ┗main_visual.png
+ ┠top/
+│ ┠ main_visual.png
 
 before_images/	圧縮対象 ←良いディレクトリ名が思いつかないｗｗｗｗｗｗ
- ┗top/
-  ┗main_visual.png
+ ┠top/
+│ ┠ main_visual.png
 ```
 
 before_images/はgit管理で、images/配下のみサーバーに上げるイメージ  
