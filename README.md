@@ -4,63 +4,76 @@
 # とりあえず理想のディレクトリ構成にしたいけど無理そう
 ・フレームワーク使いたい  
 　→今までview配下にhtmlファイルがいたから(PHPでCakePHPがメインだった)PCの中にSPがいるのが個人的に気持ち悪い。
-　また、MVCだとview配下にhtml記述 srcやwebroot配下にJS,CSS,IMGおいていたので、そういう構成にしたい。assetsとか。
-　
+　 MVCだとview配下にhtml記述 srcやwebroot配下にJS,CSS,IMGおいていたので、そういう構成にしたい。assetsとか。
 
 現状)
 	SPの階層だけ1階層深くなる
 ```
-top
+index.html
+about/
 ┠ index.html
-about
+sp/
 ┠ index.html
-sp
-┠ top
-│ ┠ index.html
 ┠ about
 │ ┠ index.html
 ```
 ex) 理想
 ```
-PC
-┠ top
+PC/
+┠ top/
 │ ┠ index.html
 ┠ about
 │ ┠ index.html
-SP
-┠ top
+SP/
+┠ top/
 │ ┠ index.html
-┠ about
+┠ about/
 │ ┠ index.html
-
-assets
-┠ css
-│ ┠ PC
-│ │ ┠ top
+assets/
+┠ css/
+│ ┠ PC/
+│ │ ┠ top/
 │ │ │ ┠ style.css
 │ │ ┠ about
 │ │ │ ┠ style.css
-│ ┠ SP
-│ │ ┠ top
+│ ┠ SP/
+│ │ ┠ top/
 │ │ │ ┠ style.css
-│ │ ┠ about
+│ │ ┠ about/
 │ │ │ ┠ style.css
-┠ scss
-│ ┠ PC
-│ │ ┠ top
+│ ┠ CMN/
+│ │ ┠ plugin.css
+┠ scss/
+│ ┠ PC/
+│ │ ┠ top/
 │ │ │ ┠ style.css
-│ │ ┠ about
+│ │ ┠ about/
 │ │ │ ┠ style.css
-│ ┠ SP
-│ │ ┠ top
+│ ┠ SP/
+│ │ ┠ top/
 │ │ │ ┠ style.css
-│ │ ┠ about
+│ │ ┠ about/
 │ │ │ ┠ style.css
-┠ img
-
-┠ js
-
-
+┠ img/
+│ ┠ PC/
+│ │ ┠ top/
+│ │ │ ┠ top.jpg
+│ │ ┠ about/
+│ │ │ ┠ about.jpg
+│ ┠ SP/
+│ │ ┠ top/
+│ │ │ ┠ top.jpg
+│ │ ┠ about/
+│ │ │ ┠ about.jpg
+│ ┠ CMN/
+│ │ ┠ plugin.jpg
+┠ js/
+│ ┠ PC/
+│ │ ┠ script.js
+│ ┠ SP/
+│ │ ┠ script.js
+│ ┠ CMN/
+│ │ ┠ plugin.js
 
 ```
 
@@ -69,7 +82,6 @@ FrontPC配下にhtmlファイル
 FrontSP配下にhtmlファイル  
 　→ファイル探しやすい  
 　PCはPC！！！SPはSP！！！にしたい。
-
 
 ## 本当は_header.scssや_footer.scss…エレメントごとに分けたい
 
@@ -97,17 +109,17 @@ root/
 
 # 「HTML編」
 ```
-┠ pc
-│ ┠ top
-│ │ ┠ ┗index.html
-│ ┠ about
-│ │ ┠ index.html
+フレームワークでもないからあまり変えず、現状に近いほうがいいかな、と
+index.html
+about/
+│ ┠ index.html
 ┠ sp
-│ ┠ top
-│ │ ┠ index.html
+│ ┠ index.html
 │ ┠ about
 │ │ ┠ index.html
 ```
+
+#下記からは
 
 # 「SCSS編」
 ・共通のものはディレクトリ直下に置く。  
