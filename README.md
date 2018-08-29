@@ -4,6 +4,8 @@
 # とりあえず理想のディレクトリ構成にしたいけど無理そう
 ・フレームワーク使いたい  
 　→今までview配下にhtmlファイルがいたから(PHPでCakePHPがメインだった)PCの中にSPがいるのが個人的に気持ち悪い。
+　また、MVCだとview配下にhtml記述 srcやwebroot配下にJS,CSS,IMGおいていたので、そういう構成にしたい。assetsとか。
+　
 
 現状)
 	SPの階層だけ1階層深くなる
@@ -22,14 +24,44 @@ ex) 理想
 ```
 PC
 ┠ top
-│ ┠ ┗index.html
-┠ bout
+│ ┠ index.html
+┠ about
 │ ┠ index.html
 SP
 ┠ top
 │ ┠ index.html
 ┠ about
 │ ┠ index.html
+
+assets
+┠ css
+│ ┠ PC
+│ │ ┠ top
+│ │ │ ┠ style.css
+│ │ ┠ about
+│ │ │ ┠ style.css
+│ ┠ SP
+│ │ ┠ top
+│ │ │ ┠ style.css
+│ │ ┠ about
+│ │ │ ┠ style.css
+┠ scss
+│ ┠ PC
+│ │ ┠ top
+│ │ │ ┠ style.css
+│ │ ┠ about
+│ │ │ ┠ style.css
+│ ┠ SP
+│ │ ┠ top
+│ │ │ ┠ style.css
+│ │ ┠ about
+│ │ │ ┠ style.css
+┠ img
+
+┠ js
+
+
+
 ```
 
 前の現場では  
@@ -63,34 +95,54 @@ root/
 
 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓上記は無理そうだからとりあえずこんなサンプルを作りたい↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
+# 「HTML編」
+```
+┠ pc
+│ ┠ top
+│ │ ┠ ┗index.html
+│ ┠ about
+│ │ ┠ index.html
+┠ sp
+│ ┠ top
+│ │ ┠ index.html
+│ ┠ about
+│ │ ┠ index.html
+```
+
 # 「SCSS編」
 ・共通のものはディレクトリ直下に置く。  
 ・コンパイルしたくないファイル冒頭に_を付ける。
 
 ```
 scss/
-┠ common/
-│ ┠ _variable.scss		全体で使用したいsass変数管理ファイル
-│ ┠ _mixin.scss			全体で使用したいmixin管理ファイル
-│ ┠ _reset.scss			リセット
-│ ┠ _common.scss			全体共通
-┠ sp_common/
-│ ┠ _variable.scss		全体で使用したいsass変数管理ファイル
-│ ┠ _mixin.scss			全体で使用したいmixin管理ファイル
-│ ┠ _reset.scss			リセット
-│ ┠ _common.scss			全体共通
+┠pc
+│ ┠ common/
+│ │ ┠ _variable.scss		全体で使用したいsass変数管理ファイル
+│ │ ┠ _mixin.scss			全体で使用したいmixin管理ファイル
+│ │ ┠ _reset.scss			リセット
+│ │ ┠ _common.scss			全体共通
+↑全体共通系(common/commonは、どうなのか？とは思うｗ)
+----------------------------------------------------------------------------------------
+↓ページ内独自
+│ ┠ top/				ページ名のディレクトリ
+│ │ ┠ _variable.scss		ページで使用したいsass変数管理ファイル(不要であれば作成しない)
+│ │ ┠ _mixin.scss			ページで使用したいmixinファイル(不要であれば作成しない)
+│ │ ┠ style.scss			必要なファイルのみ@importで読み込む　★このファイルがコンパイルされる
+
+┠sp
+│ ┠ common/
+│ │ ┠ _variable.scss		全体で使用したいsass変数管理ファイル
+│ │ ┠ _mixin.scss			全体で使用したいmixin管理ファイル
+│ │ ┠ _reset.scss			リセット
+│ │ ┠ _common.scss			全体共通
 
 ↑全体共通系(common/commonは、どうなのか？とは思うｗ)
 ----------------------------------------------------------------------------------------
 ↓ページ内独自
-
-┠ top/				ページ名のディレクトリ
-│ ┠ _variable.scss		ページで使用したいsass変数管理ファイル(不要であれば作成しない)
-│ ┠ _mixin.scss			ページで使用したいmixinファイル(不要であれば作成しない)
-│ ┠ style.scss			必要なファイルのみ@importで読み込む　★このファイルがコンパイルされる
-│ ┠ _sp_variable.scss		ページで使用したいsass変数管理ファイル(不要であれば作成しない)
-│ ┠ _sp_mixin.scss		ページで使用したいmixinファイル(不要であれば作成しない)
-│ ┠ sp_style.scss		必要なファイルのみ@importで読み込む　★このファイルがコンパイルされる
+│ ┠ top/				ページ名のディレクトリ
+│ │ ┠ _variable.scss		ページで使用したいsass変数管理ファイル(不要であれば作成しない)
+│ │ ┠ _mixin.scss			ページで使用したいmixinファイル(不要であれば作成しない)
+│ │ ┠ style.scss			必要なファイルのみ@importで読み込む　★このファイルがコンパイルされる
 ```
 
 出力結果
