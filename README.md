@@ -74,7 +74,6 @@ assets/
 │ │ ┠ script.js
 │ ┠ CMN/
 │ │ ┠ plugin.js
-
 ```
 
 前の現場では  
@@ -82,11 +81,6 @@ FrontPC配下にhtmlファイル
 FrontSP配下にhtmlファイル  
 　→ファイル探しやすい  
 　PCはPC！！！SPはSP！！！にしたい。
-
-## 本当は_header.scssや_footer.scss…エレメントごとに分けたい
-
-けど、一気にやっても大変なので。  
-というか完全新規サイト来たらちゃんと考えたいところです。  
 
 # 一般的なディレクトリ構成は…
 ```
@@ -108,8 +102,8 @@ root/
 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓上記は無理そうだからとりあえずこんなサンプルを作りたい↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 # 「HTML編」
-```
 フレームワークでもないからあまり変えず、現状に近いほうがいいかな、と
+```
 index.html
 about/
 │ ┠ index.html
@@ -119,36 +113,40 @@ about/
 │ │ ┠ index.html
 ```
 
-#下記からは
+# 下記からは(CSS, JS, IMG)assets配下に入れる想定
 
 # 「SCSS編」
 ・共通のものはディレクトリ直下に置く。  
 ・コンパイルしたくないファイル冒頭に_を付ける。
 
+本当は_header.scssや_footer.scss…エレメントごとに分けたい
+けど、一気にやっても大変なので。  
+というか完全新規サイト来たらちゃんと考えたいところです。  
+
 ```
-scss/
-┠pc
+assets/scss/
+┠ PC/
+----------------------------------------------------------------------------------------
+↓全体共通系
 │ ┠ common/
 │ │ ┠ _variable.scss		全体で使用したいsass変数管理ファイル
 │ │ ┠ _mixin.scss			全体で使用したいmixin管理ファイル
 │ │ ┠ _reset.scss			リセット
-│ │ ┠ _common.scss			全体共通
-↑全体共通系(common/commonは、どうなのか？とは思うｗ)
+│ │ ┠ _common.scss			全体共通　(common/commonは、名前どうなのか？とは思うｗ)
 ----------------------------------------------------------------------------------------
 ↓ページ内独自
 │ ┠ top/				ページ名のディレクトリ
 │ │ ┠ _variable.scss		ページで使用したいsass変数管理ファイル(不要であれば作成しない)
 │ │ ┠ _mixin.scss			ページで使用したいmixinファイル(不要であれば作成しない)
 │ │ ┠ style.scss			必要なファイルのみ@importで読み込む　★このファイルがコンパイルされる
-
-┠sp
+┠ SP/
+----------------------------------------------------------------------------------------
+↓全体共通系
 │ ┠ common/
 │ │ ┠ _variable.scss		全体で使用したいsass変数管理ファイル
 │ │ ┠ _mixin.scss			全体で使用したいmixin管理ファイル
 │ │ ┠ _reset.scss			リセット
 │ │ ┠ _common.scss			全体共通
-
-↑全体共通系(common/commonは、どうなのか？とは思うｗ)
 ----------------------------------------------------------------------------------------
 ↓ページ内独自
 │ ┠ top/				ページ名のディレクトリ
@@ -159,10 +157,50 @@ scss/
 
 出力結果
 ```
-css/
-┠ top/
-│ ┠ style.css			１ファイルで完結させる
-│ ┠ sp_style.css			１ファイルで完結させる
+assets/css/
+│ ┠ PC/
+│ │ ┠ top/
+│ │ │ ┠ style.css	resetもcommonmoも独自も１ファイルでスタイル完結させる
+│ │ ┠ about
+│ │ │ ┠ style.css
+│ ┠ SP/
+│ │ ┠ top/
+│ │ │ ┠ style.css
+│ │ ┠ about/
+│ │ │ ┠ style.css
+│ ┠ CMN/			プラグインとかcssに置く(わざわざscssに入れる必要ない)
+│ │ ┠ plugin/
+│ │ │ ┠ plugin.css
+```
+
+# 「JS編」
+```
+assets/js/
+┠ PC/
+│ ┠ script.js
+┠ SP/
+│ ┠ script.js
+┠ CMN/
+│ ┠ script.js
+│ ┠ plugin/
+│ │ ┠ plugin.js
+```
+
+# 「IMG編」
+```
+assets/img/
+┠ PC/
+│ ┠ top/
+│ │ ┠ main.jpg
+│ ┠ common/
+│ │ ┠ top_icon.png
+┠ SP/
+│ ┠ top/
+│ │ ┠ main.jpg
+│ ┠ common/
+│ │ ┠ top_icon.png
+┠ CMN/
+│ ┠ banner.jpg
 ```
 
 # topディレクトリ配下のstyle.scssとsp_style.scssの中身
