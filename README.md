@@ -168,7 +168,7 @@ assets/css/
 │ │ │ ┠ style.css
 │ │ ┠ about/
 │ │ │ ┠ style.css
-│ ┠ CMN/			プラグインとかcssに置く(わざわざscssに入れる必要ない)
+│ ┠ CMN/			プラグイン置く(わざわざscssに入れる必要ない)
 │ │ ┠ plugin/
 │ │ │ ┠ plugin.css
 ```
@@ -182,7 +182,7 @@ assets/js/
 │ ┠ script.js
 ┠ CMN/
 │ ┠ script.js
-│ ┠ plugin/
+│ ┠ plugin/			プラグインに置く
 │ │ ┠ plugin.js
 ```
 
@@ -201,6 +201,21 @@ assets/img/
 │ │ ┠ top_icon.png
 ┠ CMN/
 │ ┠ banner.jpg
+
+assets/watchImg/		圧縮対象(ignore対象でもある)
+┠ PC/
+│ ┠ top/
+│ │ ┠ main.jpg
+│ ┠ common/
+│ │ ┠ top_icon.png
+┠ SP/
+│ ┠ top/
+│ │ ┠ main.jpg
+│ ┠ common/
+│ │ ┠ top_icon.png
+┠ CMN/
+│ ┠ banner.jpg
+
 ```
 
 # topディレクトリ配下のstyle.scssとsp_style.scssの中身
