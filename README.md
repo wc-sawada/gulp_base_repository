@@ -217,9 +217,21 @@ assets/watchImg/		圧縮対象(ignore対象でもある)
 │ ┠ banner.jpg
 
 ```
+assets/img/配下のみサーバーに上げるイメージ  
+プロジェクトは確かに肥大化するかもだけど、一応圧縮前画像は持っておきたい。(watchImg)  
+(圧縮後荒れすぎたりしたとき差し替えられるように)
 
-# topディレクトリ配下のstyle.scssとsp_style.scssの中身
-必要ファイルのみimportする  
+# クリティカルパス できるかわからないけどやってみる
+
+http://blog.yuhiisk.com/archive/2015/06/22/about-critical-css.html#CSS-3
+
+https://github.com/addyosmani/critical-path-css-demo
+
+
+# ルール系まとめ
+
+## style.scssとsp_style.scssの中身
+そのページに必要ファイルのみimportする  
 
 >＜基本ルール import読み込み順＞  
 >1.variable(変数)  
@@ -257,34 +269,6 @@ ex) top/sp_style.scss
 	color: red;
 }
 ```
-
-# 「images編」  
-圧縮対象ディレクトリと圧縮出力先のディレクトリが必要  
-```
-images/		出力先
- ┠top/
-│ ┠ main_visual.png
-
-before_images/	圧縮対象 ←良いディレクトリ名が思いつかないｗｗｗｗｗｗ
- ┠top/
-│ ┠ main_visual.png
-```
-
-before_images/はgit管理で、images/配下のみサーバーに上げるイメージ  
-プロジェクトは確かに肥大化するかもだけど、一応圧縮前画像は持っておきたい。  
-(圧縮後荒れすぎたりしたとき差し替えられるように)
-
-# クリティカルパス できるかわからないけどやってみる
-
-http://blog.yuhiisk.com/archive/2015/06/22/about-critical-css.html#CSS-3
-
-https://github.com/addyosmani/critical-path-css-demo
-
-
-
-
-# ルール系まとめ
-
 ## mixinのルール
 - 何のためのmixinなのかをコメントする
 - 引数があるのであればどんな値を渡すのかをコメントする
