@@ -4,6 +4,8 @@
 # とりあえず理想のディレクトリ構成にしたいけど無理そう
 ・フレームワーク使いたい  
 　→今までview配下にhtmlファイルがいたから(PHPでCakePHPがメインだった)PCの中にSPがいるのが個人的に気持ち悪い。
+https://fwww.me/2018/06/15/website-directory/
+https://qiita.com/y_hokkey/items/871c23c24d31021d7c40
 　 MVCだとview配下にhtml記述 srcやwebroot配下にJS,CSS,IMGおいていたので、そういう構成にしたい。assetsとか。
 
 現状)
@@ -11,69 +13,69 @@
 ```
 index.html
 about/
-┠ index.html
-sp/
-┠ index.html
-┠ about
 │ ┠ index.html
+sp/
+│ ┠ index.html
+│ ┠ about/
+│ │ ┠ index.html
 ```
 ex) 理想
 ```
-PC/
-┠ top/
-│ ┠ index.html
-┠ about
-│ ┠ index.html
-SP/
-┠ top/
-│ ┠ index.html
-┠ about/
-│ ┠ index.html
+pc/
+│ ┠ top/
+│ │ ┠ index.html
+│ ┠ about/
+│ │ ┠ index.html
+sp/
+│ ┠ top/
+│ │ ┠ index.html
+│ ┠ about/
+│ │ ┠ index.html
 assets/
-┠ css/
-│ ┠ PC/
-│ │ ┠ top/
-│ │ │ ┠ style.css
-│ │ ┠ about
-│ │ │ ┠ style.css
-│ ┠ SP/
-│ │ ┠ top/
-│ │ │ ┠ style.css
-│ │ ┠ about/
-│ │ │ ┠ style.css
-│ ┠ CMN/
-│ │ ┠ plugin.css
-┠ scss/
-│ ┠ PC/
-│ │ ┠ top/
-│ │ │ ┠ style.css
-│ │ ┠ about/
-│ │ │ ┠ style.css
-│ ┠ SP/
-│ │ ┠ top/
-│ │ │ ┠ style.css
-│ │ ┠ about/
-│ │ │ ┠ style.css
-┠ img/
-│ ┠ PC/
-│ │ ┠ top/
-│ │ │ ┠ top.jpg
-│ │ ┠ about/
-│ │ │ ┠ about.jpg
-│ ┠ SP/
-│ │ ┠ top/
-│ │ │ ┠ top.jpg
-│ │ ┠ about/
-│ │ │ ┠ about.jpg
-│ ┠ CMN/
-│ │ ┠ plugin.jpg
-┠ js/
-│ ┠ PC/
-│ │ ┠ script.js
-│ ┠ SP/
-│ │ ┠ script.js
-│ ┠ CMN/
-│ │ ┠ plugin.js
+│ ┠ css/
+│ │ ┠ pc/
+│ │ │ ┠ top/
+│ │ │ │ ┠ style.css
+│ │ │ ┠ about
+│ │ │ │ ┠ style.css
+│ │ ┠ sp/
+│ │ │ ┠ top/
+│ │ │ │ ┠ style.css
+│ │ │ ┠ about/
+│ │ │ │ ┠ style.css
+│ │ ┠ cmn/
+│ │ │ ┠ plugin.css
+│ ┠ scss/
+│ │ ┠ pc/
+│ │ │ ┠ top/
+│ │ │ │ ┠ style.css
+│ │ │ ┠ about/
+│ │ │ │ ┠ style.css
+│ │ ┠ sp/
+│ │ │ ┠ top/
+│ │ │ │ ┠ style.css
+│ │ │ ┠ about/
+│ │ │ │ ┠ style.css
+│ ┠ img/
+│ │ ┠ pc/
+│ │ │ ┠ top/
+│ │ │ │ ┠ top.jpg
+│ │ │ ┠ about/
+│ │ │ │ ┠ about.jpg
+│ │ ┠ sp/
+│ │ │ ┠ top/
+│ │ │ │ ┠ top.jpg
+│ │ │ ┠ about/
+│ │ │ │ ┠ about.jpg
+│ │ ┠ cmn/
+│ │ │ ┠ plugin.jpg
+│ ┠ js/
+│ │ ┠ pc/
+│ │ │ ┠ script.js
+│ │ ┠ sp/
+│ │ │ ┠ script.js
+│ │ ┠ cmn/
+│ │ │ ┠ plugin.js
 ```
 
 前の現場では  
@@ -102,14 +104,14 @@ root/
 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓上記は無理そうだからとりあえずこんなサンプルを作りたい↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 # 「HTML編」
-フレームワークでもないからあまり変えず、現状に近いほうがいいかな、と
+フレームワークではないので、静的ならばあまり変えず、現状に近いほうがいいかな、と
 ```
 index.html
 about/
 │ ┠ index.html
 ┠ sp
 │ ┠ index.html
-│ ┠ about
+│ ┠ about/
 │ │ ┠ index.html
 ```
 
@@ -125,7 +127,7 @@ about/
 
 ```
 assets/scss/
-┠ PC/
+┠ pc/
 ----------------------------------------------------------------------------------------
 ↓全体共通系
 │ ┠ common/
@@ -158,17 +160,17 @@ assets/scss/
 出力結果
 ```
 assets/css/
-│ ┠ PC/
+│ ┠ pc/
 │ │ ┠ top/
 │ │ │ ┠ style.css	resetもcommonmoも独自も１ファイルでスタイル完結させる
 │ │ ┠ about
 │ │ │ ┠ style.css
-│ ┠ SP/
+│ ┠ sp/
 │ │ ┠ top/
 │ │ │ ┠ style.css
 │ │ ┠ about/
 │ │ │ ┠ style.css
-│ ┠ CMN/			プラグイン置く(わざわざscssに入れる必要ない)
+│ ┠ cmn/			プラグイン置く(わざわざscssに入れる必要ないのでcss/のみ)
 │ │ ┠ plugin/
 │ │ │ ┠ plugin.css
 ```
@@ -176,50 +178,51 @@ assets/css/
 # 「JS編」
 ```
 assets/js/
-┠ PC/
+┠ pc/
 │ ┠ script.js
-┠ SP/
+┠ sp/
 │ ┠ script.js
-┠ CMN/
+┠ cmn/
 │ ┠ script.js
-│ ┠ plugin/			プラグインに置く
+│ ┠ plugin/			プラグイン置く
 │ │ ┠ plugin.js
 ```
 
 # 「IMG編」
 ```
 assets/img/
-┠ PC/
+┠ pc/
 │ ┠ top/
 │ │ ┠ main.jpg
 │ ┠ common/
 │ │ ┠ top_icon.png
-┠ SP/
+┠ sp/
 │ ┠ top/
 │ │ ┠ main.jpg
 │ ┠ common/
 │ │ ┠ top_icon.png
-┠ CMN/
+┠ cmn/
 │ ┠ banner.jpg
 
-assets/watchImg/		圧縮対象(ignore対象でもある)
-┠ PC/
+assets/watchImg/		圧縮対象(ignore対象なので、コミットはしない)
+┠ pc/
 │ ┠ top/
 │ │ ┠ main.jpg
 │ ┠ common/
 │ │ ┠ top_icon.png
-┠ SP/
+┠ sp/
 │ ┠ top/
 │ │ ┠ main.jpg
 │ ┠ common/
 │ │ ┠ top_icon.png
-┠ CMN/
+┠ cmn/
 │ ┠ banner.jpg
 
 ```
 assets/img/配下のみサーバーに上げるイメージ  
 プロジェクトは確かに肥大化するかもだけど、一応圧縮前画像は持っておきたい。(watchImg)  
 (圧縮後荒れすぎたりしたとき差し替えられるように)
+↑ignoreでコミット対象外とし、肥大化を防止する。
 
 # クリティカルパス できるかわからないけどやってみる
 
