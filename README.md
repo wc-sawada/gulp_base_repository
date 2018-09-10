@@ -131,28 +131,28 @@ assets/scss/
 ----------------------------------------------------------------------------------------
 ↓全体共通系
 │ ┠ common/
-│ │ ┠ _variable.scss		全体で使用したいsass変数管理ファイル
+│ │ ┠ _variable.scss			全体で使用したいsass変数管理ファイル
 │ │ ┠ _mixin.scss			全体で使用したいmixin管理ファイル
 │ │ ┠ _reset.scss			リセット
 │ │ ┠ _common.scss			全体共通　(common/commonは、名前どうなのか？とは思うｗ)
 ----------------------------------------------------------------------------------------
 ↓ページ内独自
 │ ┠ top/				ページ名のディレクトリ
-│ │ ┠ _variable.scss		ページで使用したいsass変数管理ファイル(不要であれば作成しない)
+│ │ ┠ _variable.scss			ページで使用したいsass変数管理ファイル(不要であれば作成しない)
 │ │ ┠ _mixin.scss			ページで使用したいmixinファイル(不要であれば作成しない)
 │ │ ┠ style.scss			必要なファイルのみ@importで読み込む　★このファイルがコンパイルされる
 ┠ SP/
 ----------------------------------------------------------------------------------------
 ↓全体共通系
 │ ┠ common/
-│ │ ┠ _variable.scss		全体で使用したいsass変数管理ファイル
+│ │ ┠ _variable.scss			全体で使用したいsass変数管理ファイル
 │ │ ┠ _mixin.scss			全体で使用したいmixin管理ファイル
 │ │ ┠ _reset.scss			リセット
 │ │ ┠ _common.scss			全体共通
 ----------------------------------------------------------------------------------------
 ↓ページ内独自
 │ ┠ top/				ページ名のディレクトリ
-│ │ ┠ _variable.scss		ページで使用したいsass変数管理ファイル(不要であれば作成しない)
+│ │ ┠ _variable.scss			ページで使用したいsass変数管理ファイル(不要であれば作成しない)
 │ │ ┠ _mixin.scss			ページで使用したいmixinファイル(不要であれば作成しない)
 │ │ ┠ style.scss			必要なファイルのみ@importで読み込む　★このファイルがコンパイルされる
 ```
@@ -194,26 +194,28 @@ assets/img/
 ┠ pc/
 │ ┠ top/
 │ │ ┠ main.jpg
-│ ┠ common/
+│ ┠ cmn/
 │ │ ┠ top_icon.png
 ┠ sp/
 │ ┠ top/
 │ │ ┠ main.jpg
-│ ┠ common/
+│ ┠ cmn/
 │ │ ┠ top_icon.png
 ┠ cmn/
 │ ┠ banner.jpg
+│ ┠ plugin/			プラグイン関連画像置く
+│ │ ┠ plugin.js
 
 assets/watchImg/		圧縮対象(ignore対象なので、コミットはしない)
 ┠ pc/
 │ ┠ top/
 │ │ ┠ main.jpg
-│ ┠ common/
+│ ┠ cmn/
 │ │ ┠ top_icon.png
 ┠ sp/
 │ ┠ top/
 │ │ ┠ main.jpg
-│ ┠ common/
+│ ┠ cmn/
 │ │ ┠ top_icon.png
 ┠ cmn/
 │ ┠ banner.jpg
