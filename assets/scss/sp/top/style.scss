@@ -1,0 +1,10 @@
+// top style
+@import '../cmn/_variable';
+@import '../cmn/_reset';
+@import '../cmn/_mixin';
+@import '../cmn/_common';
+
+body {
+	display: block;
+	width: 100%;
+}
