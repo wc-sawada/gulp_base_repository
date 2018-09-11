@@ -5,7 +5,8 @@ node_modules/*
 *.log
 
 ## css
-#css/*
+css/*
+!cmn/plagin
 
 # Garbage files
 .DS_Store
