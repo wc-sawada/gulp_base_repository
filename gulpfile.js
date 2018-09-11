@@ -1,7 +1,9 @@
 //プラグイン
 var gulp = require('gulp'),
 	sass = require('gulp-sass'),
-	plumber = require('gulp-plumber');
+	plumber = require('gulp-plumber'),
+	imagemin = require('gulp-imagemin'),
+	pngquant = require('imagemin-pngquant');
 /*
 var rename = require ('gulp-rename');
 var path = require ('path');
@@ -10,6 +12,14 @@ var path = require ('path');
 //タスク
 gulp.task('gulp-test', () =>{
 	console.log('gulp success');
+});
+
+// 画像の圧縮
+gulp.task('image-min', function(){
+	gulp.src('./assets/watchImg/**/*') // src/imagesにある画像を読み込み
+	.pipe(imagemin([pngquant({quality: '60-80', speed: 1})])) // pngの圧縮サイズを指定
+	.pipe(imagemin()) // おまじないでもう一回実行
+	.pipe(gulp.dest('./assets/img/')); // 吐き出し先を指定
 });
 
 // コンパイル
