@@ -195,12 +195,12 @@ assets/img/
 │ ┠ top/
 │ │ ┠ main.jpg
 │ ┠ cmn/
-│ │ ┠ top_icon.png
+│ │ ┠ icon.png
 ┠ sp/
 │ ┠ top/
 │ │ ┠ main.jpg
 │ ┠ cmn/
-│ │ ┠ top_icon.png
+│ │ ┠ icon.png
 ┠ cmn/
 │ ┠ banner.jpg
 │ ┠ plugin/			プラグイン関連画像置く
@@ -211,12 +211,12 @@ assets/watchImg/		圧縮対象(ignore対象なので、コミットはしない)
 │ ┠ top/
 │ │ ┠ main.jpg
 │ ┠ cmn/
-│ │ ┠ top_icon.png
+│ │ ┠ icon.png
 ┠ sp/
 │ ┠ top/
 │ │ ┠ main.jpg
 │ ┠ cmn/
-│ │ ┠ top_icon.png
+│ │ ┠ icon.png
 ┠ cmn/
 │ ┠ banner.jpg
 
