@@ -1,6 +1,7 @@
 //プラグイン
-var gulp = require('gulp');
-var sass = require('gulp-sass');
+var gulp = require('gulp'),
+	sass = require('gulp-sass'),
+	plumber = require('gulp-plumber');
 /*
 var rename = require ('gulp-rename');
 var path = require ('path');
@@ -15,18 +16,13 @@ gulp.task('gulp-test', () =>{
 gulp.task('sass-compile', () =>{
 	console.log('compile start');
 	return gulp.src('./assets/scss/**/**/*.scss')
-		.pipe(sass())
-		/*
-		.pipe(rename(function (path) {
-			if (path.extname) {
-				if (path.dirname === '.') {
-					path.dirname = '';
-				}
-				path.basename =  path.dirname;
-				path.dirname = '';
+		.pipe(plumber({
+			errorHandler: function(err) {
+				console.log(err.messageFormatted);
+				this.emit('end');
 			}
 		}))
-		*/
+		.pipe(sass())
 		.pipe(gulp.dest('./assets/css/'));
 });
 

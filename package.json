@@ -19,6 +19,7 @@
   "homepage": "https://github.com/wc-sawada/gulp_base_repository#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-plumber": "^1.2.0",
     "gulp-sass": "^4.0.1"
   }
 }
