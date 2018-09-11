@@ -5,7 +5,7 @@ node_modules/*
 *.log
 
 ## css
-css/*
+css/**/**.css
 !cmn/plagin
 
 # Garbage files
