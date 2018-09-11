@@ -10,3 +10,4 @@ css/*
 
 # Garbage files
 .DS_Store
+*.map
