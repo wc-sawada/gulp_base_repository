@@ -1,0 +1,11 @@
+## node
+node_modules/*
+
+# 拡張子が log のファイルを除外
+*.log
+
+## css
+#css/*
+
+# Garbage files
+.DS_Store
