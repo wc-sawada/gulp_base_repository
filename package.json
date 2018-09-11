@@ -1,0 +1,24 @@
+{
+  "name": "gulp_base_repository",
+  "version": "1.0.0",
+  "description": "理想の新規サイトディレクトリ構成を作っていく",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wc-sawada/gulp_base_repository.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wc-sawada/gulp_base_repository/issues"
+  },
+  "homepage": "https://github.com/wc-sawada/gulp_base_repository#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1"
+  }
+}

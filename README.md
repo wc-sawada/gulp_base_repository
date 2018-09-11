@@ -323,3 +323,31 @@ ex) top/sp_style.scss
 	}
 }
 ```
+
+# gulp導入手順
+※gulpがグローバルインストールされている前提
+このリポジトリをクローンする  
+コマンドプロンプトorターミナルでプロジェクト(リポジトリ)まで移動  
+下記コマンド入力
+```
+npm install 
+```
+pacage.jsonの内容でnode_moduleができていることを確認
+下記コマンドを入力
+```
+gulp gulp-test
+```
+「gulp success」がコマンドプロンプトorターミナルで表示されることを確認
+
+# 個別タスク内容
+```
+gulp gulp-test
+```
+gulpが使えるか確認するだけのタスク。  
+consoleで「gulp success」というテキスト出力のみ。  
+```
+gulp watch
+```
+対象ディレクトリ(またはファイル)の監視コマンド  
+変更後に保存(ctrl + s)後に指定したタスクを走らせる  
+コマンドプロンプトorターミナル上で「ctrl + c」でwatchを止める
