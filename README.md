@@ -232,6 +232,9 @@ http://blog.yuhiisk.com/archive/2015/06/22/about-critical-css.html#CSS-3
 
 https://github.com/addyosmani/critical-path-css-demo
 
+下記リポジトリにて成功！！！！！  
+https://github.com/wc-sawada/critical_example
+
 
 # ルール系まとめ
 
@@ -281,6 +284,7 @@ ex) top/sp_style.scss
 - 使用されている箇所があるのなら明確にしておく
 
 ```
+// (example)
 // btnスタイル 基本型
 // $btn_name…数字で色とフォントカラーが変わります。mixin内部を参考に指定してください。初期値はentry。
 // $padding…ボタンのpadding。初期値は18px 0 18px 10px。
@@ -295,7 +299,7 @@ ex) top/sp_style.scss
 	border-radius: 8px;
 	cursor: pointer;
 
-	// かんたん検索のボタン、応募するボタン、応募完了のTOPへ戻るボタン
+	// かんたん検索のボタン、応募するボタン、応募完了のTOPへ戻るボタン(使用されているページ)
 	@if $btn_name == entry {
 		color: $white;
 		background-color: #ed236a;
@@ -324,21 +328,19 @@ ex) top/sp_style.scss
 }
 ```
 
-
 # gitignoreが効かないとき
 ```
 $ git rm -r --cached . //ファイル全体キャッシュ削除
 $ git rm -r --cached [ファイル名]  //ファイル指定してキャッシュ削除
 ```
 
-
 # gulp導入手順
-※gulpがグローバルインストールされている前提
+※gulpがグローバルインストールされている前提  
 このリポジトリをクローンする  
 コマンドプロンプトorターミナルでプロジェクト(リポジトリ)まで移動  
 下記コマンド入力
 ```
-npm install 
+npm install
 ```
 pacage.jsonの内容でnode_moduleができていることを確認
 下記コマンドを入力

@@ -4,10 +4,6 @@ var gulp = require('gulp'),
 	plumber = require('gulp-plumber'),
 	imagemin = require('gulp-imagemin'),
 	pngquant = require('imagemin-pngquant');
-/*
-var rename = require ('gulp-rename');
-var path = require ('path');
-*/
 
 //タスク
 gulp.task('gulp-test', () =>{
@@ -35,7 +31,6 @@ gulp.task('sass-compile', () =>{
 		.pipe(sass())
 		.pipe(gulp.dest('./assets/css/'));
 });
-
 
 // watch 監視
 gulp.task('watch', function () {
