@@ -3,12 +3,12 @@
 
 # とりあえず理想のディレクトリ構成にしたいけど無理そう
 ・フレームワーク使いたい  
-　→今までview配下にhtmlファイルがいたから(PHPでCakePHPがメインだった)PCの中にSPがいるのが個人的に気持ち悪い。
-https://fwww.me/2018/06/15/website-directory/
-https://qiita.com/y_hokkey/items/871c23c24d31021d7c40
+　→今までview配下にhtmlファイルがいたから(PHPでCakePHPがメインだった)PCの中にSPがいるのが個人的に違和感を感じる。  
+https://fwww.me/2018/06/15/website-directory/  
+https://qiita.com/y_hokkey/items/871c23c24d31021d7c40  
 　 MVCだとview配下にhtml記述 srcやwebroot配下にJS,CSS,IMGおいていたので、そういう構成にしたい。assetsとか。
 
-現状)
+現状)  
 	SPの階層だけ1階層深くなる
 ```
 index.html
@@ -81,8 +81,7 @@ assets/
 前の現場では  
 FrontPC配下にhtmlファイル  
 FrontSP配下にhtmlファイル  
-　→ファイル探しやすい  
-　PCはPC！！！SPはSP！！！にしたい。
+　→ファイル探しやすい。PCはPC！SPはSP！にしたい。
 
 # 一般的なディレクトリ構成は…
 ```
@@ -93,7 +92,7 @@ root/
 │ ┠ js/
 │ ┠ assets/images/
 ┠ src/ (コンパイル前)
-│ ┠ scss/ 
+│ ┠ scss/
 │ ┠ images/
 └ gulpfile.js
 ```
@@ -121,9 +120,8 @@ about/
 ・共通のものはディレクトリ直下に置く。  
 ・コンパイルしたくないファイル冒頭に_を付ける。
 
-本当は_header.scssや_footer.scss…エレメントごとに分けたい
-けど、一気にやっても大変なので。  
-というか完全新規サイト来たらちゃんと考えたいところです。  
+本当は_header.scssや_footer.scss…エレメントごとに分けたい。  
+が、一気にやっても大変なので。完全新規サイト来たらちゃんと考えたいところ。  
 
 ```
 assets/scss/
@@ -134,7 +132,7 @@ assets/scss/
 │ │ ┠ _variable.scss			全体で使用したいsass変数管理ファイル
 │ │ ┠ _mixin.scss			全体で使用したいmixin管理ファイル
 │ │ ┠ _reset.scss			リセット
-│ │ ┠ _common.scss			全体共通　(cmn/commonは、名前どうなのか？とは思うｗ)
+│ │ ┠ _common.scss			全体共通　(cmn/commonは、名前どうなのか？要検討)
 ----------------------------------------------------------------------------------------
 ↓ページ内独自
 │ ┠ top/				ページ名のディレクトリ
@@ -170,7 +168,7 @@ assets/css/
 │ │ │ ┠ style.css
 │ │ ┠ about/
 │ │ │ ┠ style.css
-│ ┠ cmn/			プラグイン置く(わざわざscssに入れる必要ないのでcss/のみ)
+│ ┠ cmn/		プラグイン置く(わざわざscssに入れる必要ないのでcssのみ)
 │ │ ┠ plugin/
 │ │ │ ┠ plugin.css
 ```
@@ -184,7 +182,7 @@ assets/js/
 │ ┠ script.js
 ┠ cmn/
 │ ┠ script.js
-│ ┠ plugin/			プラグイン置く
+│ ┠ plugin/		プラグイン置く
 │ │ ┠ plugin.js
 ```
 
@@ -203,10 +201,10 @@ assets/img/
 │ │ ┠ icon.png
 ┠ cmn/
 │ ┠ banner.jpg
-│ ┠ plugin/			プラグイン関連画像置く
+│ ┠ plugin/		プラグイン関連画像置く
 │ │ ┠ plugin.js
 
-assets/watchImg/		圧縮対象(ignore対象なので、コミットはしない)
+assets/watchImg/	圧縮対象(ignore対象なので、コミットはしない)
 ┠ pc/
 │ ┠ top/
 │ │ ┠ main.jpg
@@ -223,7 +221,7 @@ assets/watchImg/		圧縮対象(ignore対象なので、コミットはしない)
 ```
 assets/img/配下のみサーバーに上げるイメージ  
 プロジェクトは確かに肥大化するかもだけど、一応圧縮前画像は持っておきたい。(watchImg)  
-(圧縮後荒れすぎたりしたとき差し替えられるように)
+(圧縮後荒れすぎたりしたとき差し替えられるように)  
 ↑ignoreでコミット対象外とし、肥大化を防止する。
 
 # クリティカルパス できるかわからないけどやってみる
